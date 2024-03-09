@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gitlab Calendar By Luckykeeper</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .gitlab-contributions-calendar {
+            font-family: sans-serif;
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 1rem 0;
+            overflow: auto;
+        }
+
+            .gitlab-contributions-calendar text {
+                font-size: 0.75rem;
+                fill: currentColor;
+            }
+
+            .gitlab-contributions-calendar rect[data-level='0'] {
+                fill: #ededed;
+            }
+
+            .gitlab-contributions-calendar rect[data-level='1'] {
+                fill: #acd5f2;
+            }
+
+            .gitlab-contributions-calendar rect[data-level='2'] {
+                fill: #7fa8c9;
+            }
+
+            .gitlab-contributions-calendar rect[data-level='3'] {
+                fill: #527ba0;
+            }
+
+            .gitlab-contributions-calendar rect[data-level='4'] {
+                fill: #254e77;
+            }
+    </style>
+
+    <script src="https://unpkg.com/requirejs"
+            integrity="sha384-9M3Wd+wRkBqNHxK8F7Wg3Xs1Du/JXnCXgVdJ+G6KkYBvGol8vSgEiBdd8+MTaYtk"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <h1>Gitlab Activity Calendar By Luckykeeper</h1>
+
+    <div id="calendar" class="gitlab-contributions-calendar"></div>
+
+    <script>
+        (async () => {
+            const res = await fetch(
+                '/api/Calendar'
+            );
+            const data = await res.json();
+
+
+
+            requirejs(['./dist/index.js'], ({ GitlabCalendar }) => {
+            //requirejs(['https://gitlab-calendar.atanas.info/dist/index.js'], ({ GitlabCalendar }) => {
+                new GitlabCalendar(document.getElementById('calendar'), data);
+            });
+        })();
+    </script>
+</body>
+</html>
