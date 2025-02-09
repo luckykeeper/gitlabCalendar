@@ -4,7 +4,7 @@
 
 ASP.NET Core Web API 练手项目：GitLab私仓提交日历抓取和可视化，向大家展示你在公司的~~摸鱼~~工作情况吧ヾ(≧▽≦*)o
 
-demo: [https://gitlab-calendar.luckykeeper.site:44443/](https://gitlab-calendar.luckykeeper.site:44443/)
+demo: [https://gitlab-calendar.luckykeeper.site:44443/](https://gitlab-calendar.luckykeeper.site:44443/) （由于公司不再使用 Gitlab ，demo 在未来将不会有更新数据，效果请参考下面的截图）
 
 鼠标放上去可以看到当天的 Contribution，数据在程序启动后每 30 分钟抓取一次
 
@@ -42,6 +42,12 @@ yum install dotnet-sdk-8.0
 # --urls 指定了监听端口，不加的话只能本地访问
 dotnet gitlabCalendar.dll --urls "http://0.0.0.0:5000"
 ```
+
+# 姊妹项目
+
+[https://github.com/luckykeeper/giteaCalendar](https://github.com/luckykeeper/giteaCalendar) Gitea 私仓提交日历抓取和可视化，向大家展示你在公司的~~摸鱼~~工作情况吧ヾ(≧▽≦*)o
+
+Gitea 项目的数据库也是可以迁移到本项目的，参考该项目的迁移步骤反向操作即可
 
 ## Special  Thanks  To
 
